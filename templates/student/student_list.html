@@ -3,6 +3,7 @@
 {% block body %}
 
 <div class="col-md-12">
+        {% comment %}
     <div class="col-md-2 ml-0 pl-0 mb-2 float-left" id="ButtonAction">
         <div class="dropdown">
             <button class="btn bg-custom1 text-light dropdown-toggle" type="button" data-toggle="dropdown"
@@ -16,11 +17,12 @@
             </div>
         </div>
     </div> <!-- All teacher filter dropdown -->
-    <a href="{% url 'teachers:add' %}" class="btn bg-custom1-dark float-left" style="margin-left: -25px;">
-        Add new teacher
+        {% endcomment %}
+    <a href="{% url 'add_student' %}" class="btn bg-custom1-dark float-left ml-1" style="margin-left: -25px;">
+        Add new student
         <i class="fas fa-plus ml-1"></i>
     </a>
-    <table class="table table-bordered table-hover"> 
+    <table class="table table-bordered table-hover table-responsive"> 
         <thead>
           <tr>
             <th scope="col">name</th>
@@ -33,6 +35,7 @@
             <th scope="col">department</th>
             <th scope="col">class </th>
             <th scope="col">parent</th>
+            <th scope="col">action</th>
           </tr>
         </thead>
         <tbody>
@@ -48,6 +51,14 @@
             <td>{{st.department}}</td>
             <td>{{st.class }}</td>
             <td>{{st.parent}}</td>
+            <td>                  
+
+            <a class="btn btn-outline-success" href="{% url 'edit_student' pk=st.pk %}" > Edit</a>
+
+
+            <a class="btn btn-outline-danger" href="{% url 'delete_student' pk=st.pk %}"> Delete</a>
+            </td> 
+
           </tr>
         {% endfor %}
         </tbody>

@@ -46,6 +46,7 @@ INSTALLED_APPS = [
     'teachers.apps.TeachersConfig',
     'subjects.apps.SubjectsConfig',
     'clubs.apps.ClubsConfig',
+    'crispy_forms',
 ]
 
 MIDDLEWARE = [
