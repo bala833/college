@@ -12,6 +12,7 @@ urlpatterns = [
     path('', redirectView),
     path('clubs/', include('clubs.urls')),
     path('teachers/', include('teachers.urls')),
+    path('students/', include('students.urls')),
 ]
 
 

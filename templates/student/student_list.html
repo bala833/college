@@ -1,0 +1,57 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block body %}
+
+<div class="col-md-12">
+    <div class="col-md-2 ml-0 pl-0 mb-2 float-left" id="ButtonAction">
+        <div class="dropdown">
+            <button class="btn bg-custom1 text-light dropdown-toggle" type="button" data-toggle="dropdown"
+                aria-haspopup="true" aria-expanded="false">
+                All teachers
+            </button>
+            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                <a class="dropdown-item" href="#">Order by joining date</a>
+                <a class="dropdown-item" href="#">Order by ID</a>
+                <a class="dropdown-item" href="#">Order by designation</a>
+            </div>
+        </div>
+    </div> <!-- All teacher filter dropdown -->
+    <a href="{% url 'teachers:add' %}" class="btn bg-custom1-dark float-left" style="margin-left: -25px;">
+        Add new teacher
+        <i class="fas fa-plus ml-1"></i>
+    </a>
+    <table class="table table-bordered table-hover"> 
+        <thead>
+          <tr>
+            <th scope="col">name</th>
+            <th scope="col">image</th>
+            <th scope="col">roll </th>
+            <th scope="col">registration</th>
+            <th scope="col">phone</th>
+            <th scope="col">session_start</th>
+            <th scope="col">session_end</th>
+            <th scope="col">department</th>
+            <th scope="col">class </th>
+            <th scope="col">parent</th>
+          </tr>
+        </thead>
+        <tbody>
+        {% for st in student %}
+          <tr>
+            <td>{{st.name}}</td>
+            <td>{{st.image}}</td>
+            <td>{{st.roll }}</td>
+            <td>{{st.registration}}</td>
+            <td>{{st.phone}}</td>
+            <td>{{st.session_start}}</td>
+            <td>{{st.session_end}}</td>
+            <td>{{st.department}}</td>
+            <td>{{st.class }}</td>
+            <td>{{st.parent}}</td>
+          </tr>
+        {% endfor %}
+        </tbody>
+      </table> <!-- teachers list table -->
+</div>
+
+{% endblock %}

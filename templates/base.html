@@ -5,7 +5,7 @@
 		<meta charset="utf-8">
 		<meta name="author" content="Tareq Monwer | Daffodil Polytechnic">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>DPI SMS: </title>
+    <title>NB Mehta College </title>
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 		<!-- GOOGLE FONTS -->
 		<link href="https://fonts.googleapis.com/css?family=Montserrat:400i" rel="stylesheet"> 
@@ -23,7 +23,7 @@
     <!-- NAVBAR -->
 	<nav class="navbar navbar-expand-lg navbar-dark bg-custom1" id="nav-main">
         <div class="container-fluid">
-            <a class="navbar-brand" href="{% url 'mainapp:home' %}">Dashy</a>
+            <a class="navbar-brand" href="{% url 'mainapp:home' %}">NB Mehta College</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
@@ -85,9 +85,9 @@
 					  <a href="{% url 'mainapp:home' %}" class="list-group-item list-group-item-action active">
 					    <span><i class="fas fa-cogs"></i></span> Dashboard
 					  </a>
-					  <a href="#" class="list-group-item list-group-item-action"><span>
+					  <a href="{% url 'students:student_list' %}" class="list-group-item list-group-item-action"><span>
 					  	<i class="fas fa-graduation-cap"></i></span> Student 
-					  	<span class="badge badge-dark float-right">100</span>
+					  	<span class="badge badge-dark float-right">1</span>
 					  </a>
 					  <a href="{% url 'teachers:teachershome' %}" class="list-group-item list-group-item-action">
 					  	<span><i class="fas fa-chalkboard-teacher"></i></span> Teacher 
