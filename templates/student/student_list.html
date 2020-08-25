@@ -18,11 +18,11 @@
         </div>
     </div> <!-- All teacher filter dropdown -->
         {% endcomment %}
-    <a href="{% url 'add_student' %}" class="btn bg-custom1-dark float-left ml-1" style="margin-left: -25px;">
+    <a href="{% url 'add_student' %}" class="btn bg-custom1-dark float-left ml-1 mb-3" style="margin-left: -25px;">
         Add new student
         <i class="fas fa-plus ml-1"></i>
     </a>
-    <table class="table table-bordered table-hover table-responsive"> 
+    <table id="student_data" class="table table-bordered table-hover table-responsive"> 
         <thead>
           <tr>
             <th scope="col">name</th>
@@ -65,5 +65,16 @@
         </tbody>
       </table> <!-- teachers list table -->
 </div>
-
 {% endblock %}
+{% block javascript %}
+{{block.super}}
+{% comment %}
+<script type="text/javascript">
+    
+$(document).ready( function () {
+    $('#student_data').DataTable();
+} );
+</script>
+{% endcomment %}
+
+{% endblock javascript %}
