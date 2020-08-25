@@ -1,4 +1,4 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect,HttpResponseRedirect
 from . import models
 from .forms import StudentForm
 from django.urls import reverse
@@ -24,8 +24,8 @@ def add_student(request,template_name='student/student_form.html'):
         if request.method == 'POST':
             form = StudentForm(request.POST)
             if form.is_valid():
-                with transaction.atomic():
-                    form.save()
+                # with transaction.atomic():
+                form.save()
                 return HttpResponseRedirect(success_url)
 
         else:
@@ -39,12 +39,12 @@ def edit_student(request,pk,template_name='student/student_form.html'):
 
         success_url = reverse('student_list')
 
-        instance = Student.objects.get(pk=pk)
+        instance = models.Student.objects.get(pk=pk)
         if request.method == "POST":
             form = StudentForm(request.POST, instance=instance)
             if form.is_valid():
-                with transaction.atomic():
-                    form.save()
+                # with transaction.atomic():
+                form.save()
                 return HttpResponseRedirect(success_url)
         else:
             form = StudentForm(instance=instance)
@@ -57,7 +57,7 @@ def delete_student(request, pk):
 
         success_url = reverse('student_list')
 
-        student = Student.objects.get(pk=pk)
+        student = models.Student.objects.get(pk=pk)
         student.delete()
         messages.error(request,"Successfully Deleted Student ")
         return HttpResponseRedirect(success_url)
