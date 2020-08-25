@@ -11,5 +11,5 @@ class Guardian(models.Model):
     gender = models.CharField(max_length=1)     # Use M/F for gender
 
     def __str__(self):
-        return f"{self.name} -> {self.phone}"
+        return f"{self.name}"
 

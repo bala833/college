@@ -42,14 +42,15 @@
         {% for st in student %}
           <tr>
             <td>{{st.name}}</td>
-            <td>{{st.image}}</td>
+            <td>
+                <img src="{{st.image.url}}" alt="no-image" style="max-height: 100px;"></td>
             <td>{{st.roll }}</td>
             <td>{{st.registration}}</td>
             <td>{{st.phone}}</td>
             <td>{{st.session_start}}</td>
             <td>{{st.session_end}}</td>
             <td>{{st.department}}</td>
-            <td>{{st.class }}</td>
+            <td>{{st.klass }}</td>
             <td>{{st.parent}}</td>
             <td>                  
 

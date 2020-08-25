@@ -8,3 +8,4 @@ class Klass(models.Model):
 
     def __str__(self):
         return str(self.grade)
+        
