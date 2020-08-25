@@ -8,7 +8,7 @@ class Student(models.Model):
     registration = models.IntegerField(null=False)
     phone = models.CharField(null=True, max_length=11)
     session_start = models.DateField(verbose_name=u"Session start")
-    session_end = models.DateField(verbose_name=u"Session start")
+    session_end = models.DateField(verbose_name=u"Session end")
     department = models.ForeignKey('departments.Department', on_delete=models.CASCADE)
     klass = models.ForeignKey('klass.Klass', on_delete=models.CASCADE)
     parent = models.ForeignKey('parents.Guardian', on_delete=models.CASCADE)
