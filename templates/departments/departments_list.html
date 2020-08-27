@@ -1,0 +1,70 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block body %}
+
+<div class="col-md-12">
+        {% comment %}
+    <div class="col-md-2 ml-0 pl-0 mb-2 float-left" id="ButtonAction">
+        <div class="dropdown">
+            <button class="btn bg-custom1 text-light dropdown-toggle" type="button" data-toggle="dropdown"
+                aria-haspopup="true" aria-expanded="false">
+                All teachers
+            </button>
+            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                <a class="dropdown-item" href="#">Order by joining date</a>
+                <a class="dropdown-item" href="#">Order by ID</a>
+                <a class="dropdown-item" href="#">Order by designation</a>
+            </div>
+        </div>
+    </div> <!-- All teacher filter dropdown -->
+        {% endcomment %}
+    <a href="{% url 'add_department' %}" class="btn bg-custom1-dark float-left ml-1 mb-3" style="margin-left: -25px;">
+        Add new student
+        <i class="fas fa-plus ml-1"></i>
+    </a>
+    <table id="department" class="table table-bordered table-hover table-responsive"> 
+        <thead>
+          <tr>
+            <th scope="col">name</th>
+            <th scope="col">dept_head</th>
+            <th scope="col">subject </th>
+            <th scope="col">registration</th>
+            <th scope="col">action</th>
+          </tr>
+        </thead>
+        <tbody>
+        {% for st in department %}
+          <tr>
+            <td>{{st.name}}</td>
+            <td>
+                <img src="{{st.image.url}}" alt="no-image" style="max-height: 100px;"></td>
+            <td>{{st.name }}</td>
+            <td>{{st.dept_head}}</td>
+            <td>{{st.subject}}</td>
+
+            <td>                  
+
+            <a class="btn btn-outline-success" href="{% url 'edit_department' pk=st.pk %}" > Edit</a>
+
+
+            <a class="btn btn-outline-danger" href="{% url 'delete_department' pk=st.pk %}"> Delete</a>
+            </td> 
+
+          </tr>
+        {% endfor %}
+        </tbody>
+      </table> <!-- teachers list table -->
+</div>
+{% endblock %}
+{% block javascript %}
+{{block.super}}
+{% comment %}
+<script type="text/javascript">
+    
+$(document).ready( function () {
+    $('#department').DataTable();
+} );
+</script>
+{% endcomment %}
+
+{% endblock javascript %}

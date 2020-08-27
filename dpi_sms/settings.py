@@ -83,12 +83,38 @@ WSGI_APPLICATION = 'dpi_sms.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/2.1/ref/settings/#databases
 
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.sqlite3',
+#         'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+#     }
+# }
+
+# sudo apt-get install mysql-client
+
+
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': 'college',
+        'USER': 'college',
+        'PASSWORD': 'college',
+        'HOST': 'localhost',
+        # 'HOST': '192.168.96.112',
+        'PORT': '',
+        'OPTIONS': {
+            'sql_mode': 'TRADITIONAL',
+            'charset': 'utf8',
+            'isolation_level': 'read committed',
+            'init_command': 'SET '
+                            'character_set_connection=utf8,'
+                            'collation_connection=utf8_general_ci',
+            # 'storage_engine=INNODB,'
+            # 'SESSION TRANSACTION ISOLATION LEVEL READ COMMITTED',
+        }  # Now we have a mild degree of confidence :-)
     }
 }
+
 
 
 # Password validation
@@ -131,5 +157,10 @@ STATIC_URL = '/static/'
 STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static')]
 
 
-MEDIA_ROOT = os.path.join(BASE_DIR, 'media/')
+# MEDIA_ROOT = os.path.join(BASE_DIR, 'media/')
 # MEDIA_URL = '/media/'
+
+
+
+MEDIA_ROOT = '/home/xarxa-15/www/college/media/'
+MEDIA_URL = '/media/'

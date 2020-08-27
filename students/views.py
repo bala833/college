@@ -10,7 +10,7 @@ def student_list(request):
     context = {
         'student': student,
     }
-    return render(request, 'student/student_list.html', context)
+    return render(request, 'student/students_list.html', context)
 
 
 
@@ -30,7 +30,7 @@ def add_student(request,template_name='student/student_form.html'):
 
         else:
             form = StudentForm()
-        context = {'student_qs':student_qs,'form':form,'title':"Add Student"}
+        context = {'form':form,'title':"Add Student"}
         return render(request, template_name,context )
 
 
