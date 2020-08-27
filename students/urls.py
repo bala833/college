@@ -1,6 +1,10 @@
 from django.urls import path
 from . import views
 from django.conf.urls import include, url
+from django.contrib.staticfiles.urls import staticfiles_urlpatterns
+from django.conf.urls.static import static
+# from django.conf.urls.defaults import *
+from django.conf import settings
 
 # app_name = 'students'
 urlpatterns = [
@@ -13,4 +17,4 @@ urlpatterns = [
     # path('add/', views.addTeacherView, name='add'),
     # path('del/<int:pk>/', views.deleteView, name='delete'),
     # url(r'^(?P<vendor_slug>[\w-]+)/pending_order_list/$', views.pending_order_list, {'template_name': 'dashboard/pending_order_list.html'}, 'pending_order_list'),
-]
+]  + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
