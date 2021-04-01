@@ -1,1 +1,1 @@
-web: gunicorn college.app
+web: gunicorn college-new.app
